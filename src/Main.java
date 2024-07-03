@@ -1,4 +1,6 @@
+import br.dio.desafio.dominio.Bootcamp;
 import br.dio.desafio.dominio.Curso;
+import br.dio.desafio.dominio.Dev;
 import br.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -24,5 +26,40 @@ public class Main {
         mentoria.setData(LocalDate.now());
 
         System.out.println(mentoria);
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        System.out.println("###############################################");
+        System.out.println("###############################################");
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila");
+        devCamila.inscreverBootcap(bootcamp);
+        System.out.println("Conteúdos Inscritos Camila: " + devCamila.getConteudosInscritos());
+        devCamila.progredir();
+        devCamila.progredir();
+        System.out.println("###############################################");
+        System.out.println("Conteúdos Inscritos Camila: " + devCamila.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos Camila: " + devCamila.getContedosConcluidos());
+        System.out.println("XP: " + devCamila.calcularXp());
+
+        System.out.println("###############################################");
+
+        Dev devJoão = new Dev();
+        devCamila.setNome("João");
+        devJoão.inscreverBootcap(bootcamp);
+        System.out.println("Conteúdos Inscritos João: " + devCamila.getConteudosInscritos());
+        devJoão.progredir();
+        devJoão.progredir();
+        devJoão.progredir();
+        System.out.println("###############################################");
+        System.out.println("Conteúdos Inscritos João: " + devCamila.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos João: " + devCamila.getContedosConcluidos());
+        System.out.println("XP: " + devJoão.calcularXp());
     }
 }
